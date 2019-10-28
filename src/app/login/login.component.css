@@ -1,0 +1,17 @@
+.container {
+    text-align: center;
+}
+
+.btn-primary {
+    margin: 50px;
+    background-color: #41176f;
+    border-color: #41176f;
+}
+
+#imgur-demo {
+    margin: 40px;
+}
+
+.logo {
+    max-width: 100%;
+}

@@ -1,0 +1,12 @@
+.album {
+    height: 400px;
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+}
+
+.album img {
+    border: solid 1px;
+    height: 100%;
+    width: 100%;
+}

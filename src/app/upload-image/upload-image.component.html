@@ -1,0 +1,49 @@
+<div class="center">
+
+    <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)"
+                   [showBrowseBtn]="true"
+                   accept="png"
+                   browseBtnClassName="browseButton">
+        <ng-template let-openFileSelector="openFileSelector">
+            Optional custom content that replaces the the entire default content.
+            <!--            <button type="button" (click)="openFileSelector()">Browse Files</button>-->
+        </ng-template>
+    </ngx-file-drop>
+    <div class="upload-table">
+
+        <form [formGroup]="orderForm" (ngSubmit)="onSubmit(orderForm)">
+            <div class="box row align-items-center">
+                <div class="col">
+                    <mat-form-field *ngIf="albums">
+                        <mat-label>Select an album</mat-label>
+                        <mat-select name="albums" formControlName="selectedValue">
+                            <mat-option *ngFor="let album of albums" [value]="album.id">
+                                {{album.title}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col">
+                    <p id="margins">Or create new album</p>
+                </div>
+                <div class="col">
+                    <input type="text" formControlName="inputValue">
+                </div>
+            </div>
+
+            <mat-progress-bar *ngIf="progressValue>0"
+                              class="margin"
+                              mode="determinate"
+                              [value]="progressValue"
+            >
+            </mat-progress-bar>
+
+            <button type="submit" [disabled]="(orderForm?.value?.items?.length == 0) || !orderForm.valid"
+                    class="btn btn-success">Upload
+            </button>
+            <div *ngFor="let item of orderForm?.get('items')?.controls; let i = index;" id="items-wrapper">
+                <app-list-item [parentForm]="orderForm" [i]="i" [albums]="albums"></app-list-item>
+            </div>
+        </form>
+    </div>
+</div>

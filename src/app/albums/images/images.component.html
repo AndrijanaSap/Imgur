@@ -1,0 +1,52 @@
+<div class="component-image-slider">
+    <div id="wrapButtons">
+        <div *ngIf="(authService.canUnlockButtonsOnImage | async) == true" class="buttons">
+
+            <a (click)="onClickEdit()" *ngIf="!editMode" id="aEdit">
+                <i class="fa fa-edit"></i>
+            </a>
+            <div *ngIf="editMode" class="inline-block">
+                <a (click)="onClickCancel()">
+                    <i class="fa fa-times"></i>
+                </a>
+                <a (click)="onClickSave()">
+                    <i class="fa fa-save"></i>
+                </a>
+            </div>
+            <a (click)="openDialog()">
+                <i class="fa fa-trash-o"></i>
+            </a>
+            <a (click)="onClickAdd()">
+                <i class="fa fa-plus"></i>
+            </a>
+        </div>
+        <a (click)="imageService.closeImageSlider()">
+            <mat-icon>backspace</mat-icon>
+        </a>
+    </div>
+
+    <swiper [config]="config" #instanceOfSwiper *ngIf="!emptyAlbum">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" *ngFor="let image of imagesFromAlbum">
+                <img [src]="image.link">
+                <div id="wrap-title-and-description" class="carousel-caption">
+                <textarea [(ngModel)]="image.description"
+                          class="carousel-caption description"
+                          disabled
+                          [ngClass]="{'edit-text-area': editMode, 'preview-text-area': !editMode}">
+                </textarea>
+                    <textarea [(ngModel)]="image.title "
+                              class="carousel-caption title"
+                              disabled
+                              [ngClass]="{'edit-text-area': editMode, 'preview-text-area': !editMode}"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </swiper>
+    <div *ngIf="emptyAlbum">
+        This album is empty
+    </div>
+</div>

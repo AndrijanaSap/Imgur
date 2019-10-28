@@ -1,0 +1,41 @@
+<form [formGroup]="parentForm" (ngSubmit)="onSubmit(parentForm)">
+    <div formArrayName="items">
+        <div class="form-row" [formGroupName]="i">
+            <div class="col-md">
+                <img [src]="imageSrc" height="50px" width="50px">
+            </div>
+            <div class="col-md">
+                <input formControlName="nameOfImage" placeholder="Item name">
+                <div *ngIf="parentForm.controls.items.controls[this.i].controls['nameOfImage'].hasError('required') &&
+                (parentForm.controls.items.controls[this.i].controls['nameOfImage'].dirty ||
+                parentForm.controls.items.controls[this.i].controls['nameOfImage'].touched)"
+                     class="required-field">
+                    This field is required
+                </div>
+            </div>
+            <div class="col-md">
+                <input formControlName="descriptionOfImage" placeholder="Item description">
+                <div *ngIf="parentForm.controls.items.controls[this.i].controls['descriptionOfImage'].hasError('required') &&
+                (parentForm.controls.items.controls[this.i].controls['descriptionOfImage'].dirty ||
+                parentForm.controls.items.controls[this.i].controls['descriptionOfImage'].touched)"
+                     class="required-field">
+                    This field is required
+                </div>
+                <div *ngIf="parentForm.controls.items.controls[this.i].controls['descriptionOfImage'].hasError('validateDescription') &&
+                (parentForm.controls.items.controls[this.i].controls['descriptionOfImage'].dirty ||
+                parentForm.controls.items.controls[this.i].controls['descriptionOfImage'].touched)"
+                     class="required-field">
+                    Description should contain at least 10 words
+                </div>
+
+            </div>
+            <div class="col-md">
+                <button (click)="onClickDelete(i)">Delete</button>
+            </div>
+            <div class="col-md">
+                <button type="submit" [disabled]="parentForm.controls.items['controls'][this.i].invalid">Upload</button>
+            </div>
+        </div>
+    </div>
+</form>
+

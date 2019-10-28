@@ -1,0 +1,18 @@
+<div id="header">
+    <div class="parent-wrapper">
+        <div class="parent" (scroll)="onScroll($event)">
+            <div class="container-fluid">
+                <div class="row ">
+                    <app-album class="col-md-4"
+                               *ngFor="let album of albums"
+                               [source]="album"
+                               [routerLink]="album.id"
+                    ></app-album>
+                    <div class="loading-bar">
+                        <img *ngIf="showLoading" class="loading" src="../../assets/photos/loading.gif">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+.left, .right {
+    float: left;
+    height: 100vh;
+}
+
+.left {
+    background: #14000e;
+    display: inline-block;
+    white-space: nowrap;
+    width: 50px;
+    transition: width 1s;
+}
+
+.right {
+    background: #fff;
+    width: 350px;
+    transition: width 1s;
+    border-style: solid;
+    border-color: #ccc;
+    border-width: 1px;
+}
+
+.move-left {
+    width: 250px;
+}
+
+.left .glyphicon {
+    margin: 15px;
+    width: 20px;
+    color: #fff;
+}
+
+.item {
+    height: 50px;
+    overflow: hidden;
+    color: #fff;
+    cursor: pointer;
+}
+
+.bottom {
+    overflow: hidden;
+    width: inherit;
+    bottom: 0px;
+    position: absolute;
+}
+
+#username {
+    bottom: 5px;
+}
+
+#logout {
+    bottom: 60px;
+}
+
+.glyphicon-log-out {
+    font-size: 26px;
+}
+
+a {
+    color: white;
+}
+
+.active {
+    color: blue;
+}
+
+.avatar {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px
+}

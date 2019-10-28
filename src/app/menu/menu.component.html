@@ -1,0 +1,40 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+<div id="left" class="left" [ngClass]="toggleSidenav ? 'move-left' : 'left'">
+    <div class="item" id="menu-toggle" (click)="toggleSidenav=!toggleSidenav">
+        <span class="glyphicon glyphicon-align-justify"></span>
+        Imgur
+    </div>
+    <div class="item" *ngIf="!authService.isLoggedIn" routerLink="/login">
+        <span class="glyphicon glyphicon-log-in" routerLinkActive="active"></span>
+        <a>Login</a>
+    </div>
+    <div class="item" *ngIf="authService.isLoggedIn" routerLink="/user">
+        <span class="glyphicon glyphicon glyphicon-picture" routerLinkActive="active"></span>
+        <a>Gallery</a>
+    </div>
+    <div class="item" *ngIf="authService.isLoggedIn" routerLink="/upload">
+        <span class="glyphicon glyphicon glyphicon-plus" routerLinkActive="active"></span>
+        <a (click)="onClickAddnewImage()">Add new image</a>
+    </div>
+    <div class="item" routerLink="/hot">
+        <span class="glyphicon glyphicon glyphicon-fire" routerLinkActive="active"></span>
+        <a>Hot</a>
+    </div>
+    <div class="item" routerLink="/top">
+        <span class="glyphicon glyphicon-heart" routerLinkActive="active"></span>
+        <a>Top</a>
+    </div>
+
+    <div class="item bottom" id="logout"
+         *ngIf="authService.isLoggedIn"
+         (click)="onClickLogout()">
+        <span class="glyphicon glyphicon-log-out" routerLinkActive="active"></span>
+        <a>Logout</a>
+    </div>
+    <div class="item bottom" id="username">
+        <img [src]="avatar" class="avatar"/>
+        <span>{{username}}</span>
+
+    </div>
+</div>

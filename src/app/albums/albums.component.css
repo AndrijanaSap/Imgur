@@ -1,0 +1,14 @@
+.albums {
+    background-color: white;
+}
+
+.loading {
+    width: 30px;
+    height: 30px;
+}
+
+.loading-bar {
+    height: 30px;
+    width: 100%;
+    text-align: center;
+}

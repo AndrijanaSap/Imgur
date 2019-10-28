@@ -1,0 +1,30 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.parent-wrapper {
+    height: 100%;
+    width: 100%;
+}
+
+.parent {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #8080804f;
+    height: 100vh;
+    overflow: auto;
+}
+
+.child {
+    display: inline-block;
+    margin: 10px 0 0 10px;
+    flex-grow: 1;
+}
+
+.gallery {
+    width: 100%;
+}
+
+#wrapper {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+}

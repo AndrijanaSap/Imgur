@@ -1,0 +1,47 @@
+.dropdown {
+    display: inline-block;
+    margin: 30px;
+}
+
+form {
+    margin: 20px;
+    display: inline-block;
+    width: 100%;
+}
+
+#margins {
+    margin: 10px 10px 10px 10px;
+    min-width: 132px;
+}
+
+.required-field {
+    color: #41176f;
+    font-size: 11px;
+}
+
+input:invalid {
+    background-color: pink;
+}
+
+.form-control.is-invalid, .was-validated .form-control:invalid {
+    border-color: #7c6399;
+    padding-right: calc(1.5em + .75rem);
+}
+
+.margin {
+    margin: 50px;
+}
+
+#items-wrapper {
+    text-align: center;
+}
+
+input {
+    border: 1px solid #8080809c;
+    margin: 20px;
+}
+
+.col {
+    text-align: center;
+    padding-left: 0px;
+}
